@@ -73,6 +73,9 @@ spec:
         {{- with .Values.flags.updateStrategy }}
         - "--update-strategy={{ . }}"
         {{- end }}
+        {{- if .Values.flags.manageSafeToEvictAnnotation }}
+        - "--manage-safe-to-evict-annotation"
+        {{- end }}
         {{- if .Values.metrics }}
         {{- with .Values.metrics }}
         - "--listener-metrics-addr={{ .listenerAddr }}"
